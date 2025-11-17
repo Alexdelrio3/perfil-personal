@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicaciones - Alejandro Fernández del Río</title>
+    <meta name="description" content="Catálogo completo de publicaciones de Alejandro Fernández del Río, investigador en ciencia ciudadana y bibliometría.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Librerías JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-navy: #1e3a8a;
+            --secondary-steel: #64748b;
+            --accent-gold: #f59e0b;
+            --text-dark: #1f2937;
+            --bg-light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .publication-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: var(--primary-navy);
+            color: white;
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-container::before {
+            content: '🔍';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, var(--primary-navy), var(--secondary-steel));
+            color: white;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-display font-bold text-xl text-blue-900">
+                    <a href="index.html">Alejandro Fernández del Río</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-900">Inicio</a>
+                    <a href="index.html#perfil" class="nav-link text-gray-700 hover:text-blue-900">Perfil</a>
+                    <a href="index.html#investigacion" class="nav-link text-gray-700 hover:text-blue-900">Investigación</a>
+                    <a href="publicaciones.html" class="nav-link text-blue-900 font-semibold">Publicaciones</a>
+                    <a href="index.html#contacto" class="nav-link text-gray-700 hover:text-blue-900">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="font-display text-4xl lg:text-6xl font-bold mb-6">Publicaciones</h1>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    Catálogo completo de artículos científicos, capítulos de libro y presentaciones en conferencias
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="stats-card rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold mb-2">12+</div>
+                    <div class="text-blue-100">Publicaciones</div>
+                </div>
+                <div class="stats-card rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold mb-2">8</div>
+                    <div class="text-blue-100">Artículos</div>
+                </div>
+                <div class="stats-card rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold mb-2">4</div>
+                    <div class="text-blue-100">Capítulos</div>
+                </div>
+                <div class="stats-card rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold mb-2">2021-2025</div>
+                    <div class="text-blue-100">Período</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters and Search Section -->
+    <section class="py-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                <!-- Search Bar -->
+                <div class="search-container flex-1 max-w-md">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Buscar publicaciones..." 
+                        class="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-3">
+                    <button class="filter-btn active px-4 py-2 rounded-lg border border-gray-300 hover:bg-blue-600 hover:text-white" data-filter="all">
+                        Todas
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-lg border border-gray-300 hover:bg-blue-600 hover:text-white" data-filter="article">
+                        Artículos
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-lg border border-gray-300 hover:bg-blue-600 hover:text-white" data-filter="chapter">
+                        Capítulos
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-lg border border-gray-300 hover:bg-blue-600 hover:text-white" data-filter="conference">
+                        Conferencias
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Grid -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="publications-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Publicación 1: Ciencia ciudadana en el ámbito biomédico -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="article" data-year="2025">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2025</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Artículo</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Ciencia ciudadana en el ámbito biomédico: análisis bibliométrico de tendencias
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Editorial:</strong> Editorial Universitat Politècnica de València<br>
+                        <strong>Coautores:</strong> Oscar Llopis, A. Raga Espinosa
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Bibliometría</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Ciencia Ciudadana</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Biomedicina</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Salud</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Análisis bibliométrico exhaustivo del fenómeno de la ciencia ciudadana en el ámbito biomédico, identificando tendencias, patrones de colaboración y áreas emergentes de investigación.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Citaciones: Próximamente</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub1')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 2: Retos para la democracia -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="article" data-year="2023">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2023</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Artículo</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Retos para la democracia en el nuevo contexto de IA e IoT: Hacia una nueva ciudadanía
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Revista:</strong> Revista internacional de pensamiento político, Núm. 18, pp. 139-155<br>
+                        <strong>Coautores:</strong> C. Moreno, A. Megías
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Inteligencia Artificial</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Democracia</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">IoT</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Ciudadanía</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Exploración de los desafíos democráticos en la era de la inteligencia artificial y el Internet de las Cosas, proponiendo un nuevo marco conceptual de ciudadanía digital.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Citaciones: 3</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub2')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 3: Presupuestos participativos -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="article" data-year="2022">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2022</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Artículo</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Presupuestos participativos: aportes y límites para radicalizar la democracia
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Revista:</strong> Revista española de ciencia política, Núm. 60, pp. 297-300
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Presupuestos Participativos</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Democracia Radical</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Participación</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Análisis crítico de los presupuestos participativos como mecanismo de democracia radical, examinando sus contribuciones, limitaciones y potencial transformador.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Citaciones: 2</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub3')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 4: OLIYOU Index -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="chapter" data-year="2021">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2021</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Capítulo</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Nuevos indicadores para el estudio de la juventud: "Opinion Leaders Index for Youth (OLIYOU)"
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Libro:</strong> Metodologías activas con TIC en la educación del siglo XXI, pp. 814-838<br>
+                        <strong>Coautores:</strong> C. Moreno, A.M. Collado
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Juventud</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Indicadores</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Liderazgo</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Metodología</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Desarrollo de un nuevo índice innovador para medir el liderazgo de opinión entre jóvenes, proporcionando herramientas avanzadas para el estudio de la juventud.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Citaciones: 1</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub4')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 5: Juventud y sistema político -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="conference" data-year="2021">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2021</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Conferencia</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Juventud y sistema político en España
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Evento:</strong> III Congreso Interdisciplinar de Jóvenes Investigadores<br>
+                        <strong>Fecha:</strong> 23 y 24 de septiembre de 2021
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Sistema Político</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Juventud</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">España</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Participación</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Análisis comprehensivo de la relación entre la juventud española y el sistema político, explorando patrones de participación, representación y engagement político.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Presentación</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub5')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 6: Nuevas herramientas para el estudio de la juventud -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="chapter" data-year="2021">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2021</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Capítulo</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Nuevas herramientas para el estudio de la juventud
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Libro:</strong> Metodologías activas con TIC en la educación del siglo XXI, pp. 216-234<br>
+                        <strong>Coautores:</strong> C. Moreno, A.M. Collado
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Herramientas</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">TIC</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Educación</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Metodología</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Presentación de nuevas herramientas metodológicas innovadoras para el estudio de la juventud en el contexto de las tecnologías de la información y comunicación.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Citaciones: 0</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub6')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 7: Estudio de la juventud en Cartagena -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="article" data-year="2023">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2023</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Informe</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Estudio de la juventud en el municipio de Cartagena
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Editorial:</strong> Universidad de Murcia - GECIS<br>
+                        <strong>Tipo:</strong> Informe técnico de investigación
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Juventud</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Cartagena</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Estudio Empírico</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Municipio</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Estudio comprehensivo sobre las condiciones de vida, participación y expectativas de la juventud en el municipio de Cartagena.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Informe Técnico</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub7')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 8: Estudio sobre la juventud en la Región de Murcia -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="article" data-year="2023">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2023</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Informe</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Estudio sobre la juventud en la Región de Murcia
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Editorial:</strong> Universidad de Murcia - GECIS<br>
+                        <strong>Tipo:</strong> Informe regional de investigación
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Juventud</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Región de Murcia</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Estudio Regional</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Desarrollo</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Análisis regional de las características, necesidades y potencialidades de la juventud en la Región de Murcia.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Informe Regional</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub8')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 9: Us and artificial intelligence -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="article" data-year="2025">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2025</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Artículo</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Us and artificial intelligence: Questioning agency and the need for critical and humanist perspectives
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Revista:</strong> Open Research Europe 5 (318), 318<br>
+                        <strong>Coautores:</strong> M. Guglielmo, P. Ahrweiler, O. Barberà, et al.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Inteligencia Artificial</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Agencia</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Perspectivas Humanistas</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Crítica</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Reflexión crítica sobre la relación entre humanos e inteligencia artificial, cuestionando la noción de agencia y defendiendo la necesidad de perspectivas humanistas.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Open Access</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub9')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 10: Challenges for Democracy -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="article" data-year="2023">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2023</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Artículo</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Challenges for Democracy in the New AI and IOT Context: Towards New Citizenship
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Revista:</strong> Revista Internacional Pensamiento Politico 18, 139<br>
+                        <strong>Coautores:</strong> C. Moreno, A. Megías
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Democracy</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">AI</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">IoT</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Citizenship</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        English version of the analysis on democratic challenges in the AI and IoT era, proposing a new framework for digital citizenship.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">English Version</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub10')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 11: Juventud y Sistema político en España -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="conference" data-year="2022">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2022</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Capítulo</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Juventud y Sistema político en España
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Editorial:</strong> ASOCIACIÓN DE JÓVENES INVESTIGADORES DE LA UMU, p. 177
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Sistema Político</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Juventud</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">España</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Análisis</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Análisis profundo de las dinámicas entre la juventud española y el sistema político nacional, con énfasis en patrones de participación y representación.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Capítulo de Libro</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub11')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Publicación 12: Afíliate a AECPA -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="article" data-year="2022">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2022</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Artículo</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Afíliate a AECPA
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Publicación:</strong> Asociación Española de Ciencia Política y de la Administración<br>
+                        <strong>Coautor:</strong> D.L. Roche
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">AECPA</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Ciencia Política</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Asociación</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Profesional</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Artículo promocional sobre los beneficios y oportunidades de afiliación a la Asociación Española de Ciencia Política y de la Administración.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Artículo Divulgativo</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub12')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- No results message -->
+            <div id="no-results" class="text-center py-12 hidden">
+                <div class="text-gray-400 text-6xl mb-4">📚</div>
+                <h3 class="text-2xl font-bold text-gray-600 mb-2">No se encontraron publicaciones</h3>
+                <p class="text-gray-500">Intenta ajustar tus criterios de búsqueda o filtros.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for abstracts -->
+    <div id="abstract-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-display text-2xl font-bold text-blue-900">Resumen</h3>
+                    <button onclick="closeAbstract()" class="text-gray-500 hover:text-gray-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="abstract-content" class="text-gray-700 leading-relaxed">
+                    <!-- Abstract content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">
+                    © 2024 Alejandro Fernández del Río. Investigador pre-doctoral en Universidad de Valencia.
+                </p>
+                <p class="text-gray-500 text-sm mt-2">
+                    Página personal creada con tecnologías web modernas y diseño responsivo.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Search and filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const publications = document.querySelectorAll('.publication-card');
+            const noResults = document.getElementById('no-results');
+            
+            let currentFilter = 'all';
+            
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                filterPublications(searchTerm, currentFilter);
+            });
+            
+            // Filter functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    currentFilter = this.dataset.filter;
+                    const searchTerm = searchInput.value.toLowerCase();
+                    filterPublications(searchTerm, currentFilter);
+                });
+            });
+            
+            function filterPublications(searchTerm, filter) {
+                let visibleCount = 0;
+                
+                publications.forEach(publication => {
+                    const title = publication.querySelector('h3').textContent.toLowerCase();
+                    const content = publication.textContent.toLowerCase();
+                    const type = publication.dataset.type;
+                    
+                    const matchesSearch = searchTerm === '' || title.includes(searchTerm) || content.includes(searchTerm);
+                    const matchesFilter = filter === 'all' || type === filter;
+                    
+                    if (matchesSearch && matchesFilter) {
+                        publication.style.display = 'block';
+                        visibleCount++;
+                        
+                        // Animate in
+                        anime({
+                            targets: publication,
+                            opacity: [0, 1],
+                            translateY: [20, 0],
+                            duration: 500,
+                            delay: visibleCount * 50
+                        });
+                    } else {
+                        publication.style.display = 'none';
+                    }
+                });
+                
+                // Show/hide no results message
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+            }
+            
+            // Initial animation
+            anime({
+                targets: '.publication-card',
+                opacity: [0, 1],
+                translateY: [30, 0],
+                duration: 800,
+                delay: anime.stagger(100)
+            });
+        });
+        
+        // Abstract modal functionality
+        const abstracts = {
+            pub1: `Este trabajo presenta un análisis bibliométrico exhaustivo del fenómeno de la ciencia ciudadana en el ámbito biomédico y sanitario. Mediante el uso de técnicas bibliométricas avanzadas, se identifican las principales tendencias, patrones de colaboración, instituciones líderes y áreas emergentes de investigación en este campo. El estudio revela un crecimiento exponencial en la producción científica sobre ciencia ciudadana en biomedicina, con una diversificación geográfica y temática significativa en los últimos años. Los resultados muestran la emergencia de redes de colaboración internacionales y el desarrollo de nuevas metodologías participativas en investigación biomédica.`,
+            
+            pub2: `Este artículo explora los desafíos fundamentales que la inteligencia artificial y el Internet de las Cosas presentan para las democracias contemporáneas. Se argumenta que estas tecnologías están reconfigurando las relaciones de poder, la privacidad y la participación ciudadana. El trabajo propone un nuevo marco conceptual de ciudadanía digital que incorpora la conciencia algorítmica, la soberanía de datos y la participación tecnológica como elementos centrales. Se presentan casos prácticos y se discuten las implicaciones para la gobernanza democrática en la era digital.`,
+            
+            pub3: `Los presupuestos participativos representan una de las innovaciones democráticas más significativas de las últimas décadas. Este artículo analiza críticamente su potencial y limitaciones como mecanismo de democracia radical. Se examinan casos de éxito y fracaso, identificando los factores que condicionan su efectividad. El trabajo argumenta que, aunque los presupuestos participativos han contribuido a la innovación democrática, enfrentan desafíos significativos en términos de escala, representatividad y sostenibilidad. Se proponen estrategias para superar estas limitaciones.`,
+            
+            pub4: `El estudio de la juventud requiere herramientas metodológicas innovadoras que capturen la complejidad de sus experiencias y comportamientos. Este capítulo presenta el desarrollo del "Opinion Leaders Index for Youth (OLIYOU)", un nuevo indicador que mide el liderazgo de opinión entre jóvenes. Se describe la metodología de construcción del índice, su validación empírica y las aplicaciones prácticas para investigación y políticas públicas. El OLIYOU representa una contribución significativa a la metodología de investigación juvenil, permitiendo análisis más sofisticados de influencia y liderazgo en contextos juveniles.`,
+            
+            pub5: `La relación entre la juventud y el sistema político español ha experimentado transformaciones significativas en las últimas décadas. Esta investigación analiza estas dinámicas mediante un enfoque multidimensional que considera patrones de participación electoral, activismo político, engagement digital y representación. Los resultados muestran una juventud políticamente activa pero crítica con las instituciones tradicionales, con preferencia por formas de participación alternativas y digitalización de la política. Se discuten las implicaciones para la legitimidad democrática y la renovación del sistema político.`,
+            
+            pub6: `Las Tecnologías de la Información y Comunicación han transformado radicalmente las posibilidades metodológicas para el estudio de la juventud. Este capítulo presenta un conjunto de herramientas innovadoras que aprovechan las capacidades digitales para la recolección, análisis y visualización de datos sobre juventud. Se describen aplicaciones prácticas, casos de uso y las ventajas metodológicas de estas nuevas herramientas. El trabajo contribuye al desarrollo de métodos de investigación más adaptados a la realidad digital de la juventud contemporánea.`,
+            
+            pub7: `Este informe técnico presenta los resultados de un estudio comprehensivo sobre las condiciones de vida, participación y expectativas de la juventud en el municipio de Cartagena. La investigación combina métodos cuantitativos y cualitativos para proporcionar un diagnóstico detallado de la situación juvenil local. Los resultados abarcan dimensiones como empleo, educación, vivienda, participación social y calidad de vida. El informe incluye recomendaciones prácticas para políticas públicas municipales dirigidas a la juventud.`,
+            
+            pub8: `El presente informe constituye un análisis regional exhaustivo de las características, necesidades y potencialidades de la juventud en la Región de Murcia. Basado en datos empíricos representativos, el estudio aborda múltiples dimensiones de la realidad juvenil: condiciones socioeconómicas, patrones de consumo, participación social y política, valores y expectativas futuras. Los resultados permiten identificar desafíos específicos y oportunidades para el desarrollo juvenil regional, proporcionando una base sólida para la formulación de políticas públicas adaptadas.`,
+            
+            pub9: `Este artículo colectivo reflexiona críticamente sobre la relación entre humanos e inteligencia artificial, cuestionando las nociones tradicionales de agencia y autonomía. Se argumenta que la creciente integración de IA en la vida diaria requiere una reconsideración fundamental de los marcos éticos y políticos. El trabajo defiende la necesidad de mantener perspectivas humanistas críticas que preserven la dignidad humana y la soberanía individual frente a la expansión de sistemas automatizados. Se proponen principios para una convivencia ética entre humanos e IA.`,
+            
+            pub10: `This article presents the English version of the analysis on democratic challenges in the AI and IoT era. The work examines how these technologies are reshaping democratic governance, citizenship, and political participation. It proposes a new framework for understanding digital citizenship that incorporates awareness of algorithmic governance, data sovereignty, and technological participation. The analysis draws on empirical cases and theoretical insights to develop practical recommendations for democratic innovation in the digital age.`,
+            
+            pub11: `Este capítulo profundiza en el análisis de las dinámicas entre la juventud española y el sistema político nacional. Utilizando datos empíricos recientes, el trabajo examina patrones de participación electoral y no electoral, activismo digital, engagement político y representación juvenil. Los resultados muestran una generación joven políticamente consciente pero crítica con las instituciones tradicionales, buscando nuevas formas de participación política más allá de los canales convencionales.`,
+            
+            pub12: `Este artículo divulgativo promueve la afiliación a la Asociación Española de Ciencia Política y de la Administración (AECPA). Se presentan los beneficios profesionales, académicos y de networking que ofrece la asociación, así como su papel en el desarrollo de la ciencia política española. El trabajo busca incentivar la participación activa de investigadores y profesionales en la comunidad académica de ciencia política en España.`
+        };
+        
+        function showAbstract(pubId) {
+            const modal = document.getElementById('abstract-modal');
+            const content = document.getElementById('abstract-content');
+            
+            content.textContent = abstracts[pubId] || 'Resumen no disponible.';
+            modal.classList.remove('hidden');
+            
+            // Animate modal
+            anime({
+                targets: modal.querySelector('.bg-white'),
+                scale: [0.8, 1],
+                opacity: [0, 1],
+                duration: 300,
+                easing: 'easeOutQuart'
+            });
+        }
+        
+        function closeAbstract() {
+            const modal = document.getElementById('abstract-modal');
+            
+            anime({
+                targets: modal.querySelector('.bg-white'),
+                scale: [1, 0.8],
+                opacity: [1, 0],
+                duration: 200,
+                easing: 'easeInQuart',
+                complete: () => {
+                    modal.classList.add('hidden');
+                }
+            });
+        }
+        
+        // Close modal on background click
+        document.getElementById('abstract-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAbstract();
+            }
+        });
+    </script>
+</body>
+</html>

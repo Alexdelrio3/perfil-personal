@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos de Investigación - Alejandro Fernández del Río</title>
+    <meta name="description" content="Proyectos de investigación de Alejandro Fernández del Río en ciencia ciudadana, bibliometría e innovación social.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Librerías JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --primary-navy: #1e3a8a;
+            --secondary-steel: #64748b;
+            --accent-gold: #f59e0b;
+            --text-dark: #1f2937;
+            --bg-light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .status-active {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .status-completed {
+            background: linear-gradient(135deg, #6b7280, #4b5563);
+        }
+        
+        .status-upcoming {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        .timeline-project {
+            position: relative;
+        }
+        
+        .timeline-project::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background: var(--primary-navy);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-navy);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="font-display font-bold text-xl text-blue-900">
+                    <a href="index.html">Alejandro Fernández del Río</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-900">Inicio</a>
+                    <a href="index.html#perfil" class="nav-link text-gray-700 hover:text-blue-900">Perfil</a>
+                    <a href="index.html#investigacion" class="nav-link text-gray-700 hover:text-blue-900">Investigación</a>
+                    <a href="publicaciones.html" class="nav-link text-gray-700 hover:text-blue-900">Publicaciones</a>
+                    <a href="proyectos.html" class="nav-link text-blue-900 font-semibold">Proyectos</a>
+                    <a href="index.html#contacto" class="nav-link text-gray-700 hover:text-blue-900">Contacto</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-blue-900 to-blue-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="font-display text-4xl lg:text-6xl font-bold mb-6">Proyectos de Investigación</h1>
+                <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                    Proyectos actuales y finalizados en ciencia ciudadana, bibliometría, innovación social y políticas públicas
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Statistics -->
+    <section class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-center text-white">
+                    <div class="text-3xl font-bold mb-2">5</div>
+                    <div class="text-green-100">Proyectos Activos</div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 text-center text-white">
+                    <div class="text-3xl font-bold mb-2">8</div>
+                    <div class="text-blue-100">Proyectos Finalizados</div>
+                </div>
+                <div class="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-6 text-center text-white">
+                    <div class="text-3xl font-bold mb-2">€500K+</div>
+                    <div class="text-purple-100">Financiación Total</div>
+                </div>
+                <div class="bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-6 text-center text-white">
+                    <div class="text-3xl font-bold mb-2">15+</div>
+                    <div class="text-amber-100">Colaboradores</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Projects -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl font-bold text-blue-900 mb-6">Proyectos Actuales</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Proyectos de investigación en curso con financiación activa y colaboración internacional
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Proyecto 1: Ciencia Ciudadana Biomédica -->
+                <div class="project-card rounded-2xl p-8 card-hover">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="status-active text-white px-4 py-2 rounded-full text-sm font-semibold">
+                            Activo
+                        </div>
+                        <span class="text-sm text-gray-500">2024-2026</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-blue-900 mb-4">
+                        Análisis Bibliométrico de la Ciencia Ciudadana en Biomedicina
+                    </h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Estudio integral del fenómeno de la ciencia ciudadana en el ámbito biomédico mediante métodos bibliométricos avanzados. Análisis de redes de colaboración, tendencias temáticas y evaluación del impacto social de proyectos de ciencia ciudadana en salud.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Financiación</p>
+                            <p class="text-gray-700">Universidad de Valencia</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Colaboradores</p>
+                            <p class="text-gray-700">CWTS Leiden, INN4ALL</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Rol</p>
+                            <p class="text-gray-700">Investigador Principal</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Presupuesto</p>
+                            <p class="text-gray-700">€45,000</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Bibliometría</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Ciencia Ciudadana</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Biomedicina</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Salud</span>
+                    </div>
+                    
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <p class="text-sm text-blue-800">
+                            <strong>Impacto esperado:</strong> Desarrollo de herramientas de evaluación para proyectos de ciencia ciudadana en salud, contribución a políticas públicas de investigación participativa.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: INN4ALL -->
+                <div class="project-card rounded-2xl p-8 card-hover">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="status-active text-white px-4 py-2 rounded-full text-sm font-semibold">
+                            Activo
+                        </div>
+                        <span class="text-sm text-gray-500">2024-Actualidad</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-blue-900 mb-4">
+                        INN4ALL: Innovación, Ciencia y Sociedad
+                    </h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Investigación en innovación social y ciencia ciudadana como mecanismos de transformación social. Desarrollo de marcos teóricos y metodológicos para la evaluación del impacto social de la investigación participativa.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Financiación</p>
+                            <p class="text-gray-700">Universidad de Valencia</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Coordinador</p>
+                            <p class="text-gray-700">Dr. Oscar Llopis</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Rol</p>
+                            <p class="text-gray-700">Investigador Pre-doctoral</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Equipo</p>
+                            <p class="text-gray-700">8 investigadores</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Innovación Social</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Ciencia Ciudadana</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Evaluación</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Impacto</span>
+                    </div>
+                    
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <p class="text-sm text-green-800">
+                            <strong>Logros:</strong> 5 publicaciones en revistas indexadas, participación en 3 conferencias internacionales, desarrollo de metodologías de evaluación.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: Estancia CWTS -->
+                <div class="project-card rounded-2xl p-8 card-hover">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="status-active text-white px-4 py-2 rounded-full text-sm font-semibold">
+                            Activo
+                        </div>
+                        <span class="text-sm text-gray-500">2024-2025</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-blue-900 mb-4">
+                        Estancia de Investigación en CWTS | Leiden University
+                    </h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Estancia de investigación internacional en el Centro de Estudios de Ciencia y Tecnología (CWTS) de la Universidad de Leiden, Países Bajos. Enfoque en el análisis bibliométrico de la ciencia ciudadana en salud biomédica.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Institución</p>
+                            <p class="text-gray-700">CWTS | Leiden University</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Supervisor</p>
+                            <p class="text-gray-700">Dr. Alfredo Yegros</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Rol</p>
+                            <p class="text-gray-700">Investigador Visitante</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Financiación</p>
+                            <p class="text-gray-700">UV + CWTS</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Internacional</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Bibliometría</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">CWTS</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Leiden</span>
+                    </div>
+                    
+                    <div class="bg-purple-50 rounded-lg p-4">
+                        <p class="text-sm text-purple-800">
+                            <strong>Objetivos:</strong> Desarrollar competencias avanzadas en bibliometría, establecer colaboraciones internacionales, avanzar en la tesis doctoral.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4: Transformative Innovation -->
+                <div class="project-card rounded-2xl p-8 card-hover">
+                    <div class="flex items-start justify-between mb-6">
+                        <div class="status-upcoming text-white px-4 py-2 rounded-full text-sm font-semibold">
+                            En Preparación
+                        </div>
+                        <span class="text-sm text-gray-500">2025-2027</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-blue-900 mb-4">
+                        Evaluación del Potencial Transformador de la Ciencia Ciudadana
+                    </h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Desarrollo de un marco conceptual y metodológico para evaluar el potencial transformador de proyectos de ciencia ciudadana en el ámbito biomédico. Financiado por EU-SPRI Conference 2025.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Financiación</p>
+                            <p class="text-gray-700">EU-SPRI (Pendiente)</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Coautores</p>
+                            <p class="text-gray-700">O. Llopis, C. Corona</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Rol</p>
+                            <p class="text-gray-700">Investigador Principal</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-800 mb-2">Presupuesto</p>
+                            <p class="text-gray-700">€120,000 (Estimado)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Transformación</span>
+                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Evaluación</span>
+                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">EU-SPRI</span>
+                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Políticas</span>
+                    </div>
+                    
+                    <div class="bg-amber-50 rounded-lg p-4">
+                        <p class="text-sm text-amber-800">
+                            <strong>Fase:</strong> Preparación de propuesta para convocatoria H2020. Se espera presentación en Q1 2025.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Completed Projects -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl font-bold text-blue-900 mb-6">Proyectos Finalizados</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Proyectos de investigación completados con resultados publicados y impacto demostrado
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Timeline de proyectos finalizados -->
+                <div class="relative">
+                    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-300"></div>
+                    
+                    <!-- Proyecto 2023 -->
+                    <div class="timeline-project relative pl-16 mb-8">
+                        <div class="project-card rounded-2xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="status-completed text-white px-3 py-1 rounded-full text-xs font-semibold">
+                                    Finalizado
+                                </div>
+                                <span class="text-sm text-gray-500">2023</span>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-blue-900 mb-3">
+                                Estudio de la Juventud en la Región de Murcia
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Investigación empírica sobre las condiciones de vida, participación y expectativas de la juventud en la Región de Murcia. Desarrollo de indicadores y herramientas metodológicas innovadoras.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Juventud</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Murcia</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Indicadores</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">GECIS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 2022 -->
+                    <div class="timeline-project relative pl-16 mb-8">
+                        <div class="project-card rounded-2xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="status-completed text-white px-3 py-1 rounded-full text-xs font-semibold">
+                                    Finalizado
+                                </div>
+                                <span class="text-sm text-gray-500">2022</span>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-blue-900 mb-3">
+                                Presupuestos Participativos y Democracia Radical
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Análisis comparativo de experiencias de presupuestos participativos en España y Europa. Evaluación de su impacto en la calidad democrática y la participación ciudadana.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Presupuestos</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Democracia</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Participación</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">CIS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 2021 -->
+                    <div class="timeline-project relative pl-16 mb-8">
+                        <div class="project-card rounded-2xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="status-completed text-white px-3 py-1 rounded-full text-xs font-semibold">
+                                    Finalizado
+                                </div>
+                                <span class="text-sm text-gray-500">2021</span>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-blue-900 mb-3">
+                                Desarrollo del OLIYOU Index
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Creación y validación del "Opinion Leaders Index for Youth (OLIYOU)", una herramienta metodológica innovadora para medir el liderazgo de opinión entre jóvenes.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">OLIYOU</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Indicadores</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Liderazgo</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Metodología</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 2020 -->
+                    <div class="timeline-project relative pl-16">
+                        <div class="project-card rounded-2xl p-6 card-hover">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="status-completed text-white px-3 py-1 rounded-full text-xs font-semibold">
+                                    Finalizado
+                                </div>
+                                <span class="text-sm text-gray-500">2020-2021</span>
+                            </div>
+                            <h3 class="font-display text-xl font-bold text-blue-900 mb-3">
+                                Nuevas Herramientas TIC para el Estudio de la Juventud
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Desarrollo de herramientas digitales innovadoras para la recolección y análisis de datos sobre juventud, integrando metodologías tradicionales con tecnologías emergentes.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">TIC</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Herramientas</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Innovación</span>
+                                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">UMU</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Impact -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl font-bold text-blue-900 mb-6">Impacto de la Investigación</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Resultados y contribuciones de los proyectos de investigación a la comunidad académica y social
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Impacto Académico -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="font-display text-2xl font-bold text-blue-900 mb-6">Impacto Académico</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-blue-900">12+ Publicaciones</p>
+                                <p class="text-gray-600 text-sm">En revistas indexadas y conferencias internacionales</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-blue-900">5 Conferencias</p>
+                                <p class="text-gray-600 text-sm">Presentaciones en eventos internacionales</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-blue-900">3 Redes Internacionales</p>
+                                <p class="text-gray-600 text-sm">Colaboraciones con centros de investigación</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-blue-900">1 Herramienta Metodológica</p>
+                                <p class="text-gray-600 text-sm">OLIYOU Index desarrollado y validado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impacto Social -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                    <h3 class="font-display text-2xl font-bold text-blue-900 mb-6">Impacto Social</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-blue-900">2 Informes Regionales</p>
+                                <p class="text-gray-600 text-sm">Sobre juventud para administraciones públicas</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-blue-900">Consultoría</p>
+                                <p class="text-gray-600 text-sm">Asesoramiento en políticas de juventud</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-blue-900">Difusión</p>
+                                <p class="text-gray-600 text-sm">Artículos divulgativos y entrevistas</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-teal-100 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-blue-900">Formación</p>
+                                <p class="text-gray-600 text-sm">Supervisión de trabajos de investigación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-blue-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-display text-3xl font-bold mb-6">¿Interesado en colaborar?</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                Estoy siempre abierto a nuevas colaboraciones en proyectos de investigación relacionados con ciencia ciudadana, bibliometría e innovación social.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="index.html#contacto" class="bg-amber-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-amber-300 transition-colors">
+                    Contactar
+                </a>
+                <a href="publicaciones.html" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors">
+                    Ver Publicaciones
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-gray-400">
+                    © 2024 Alejandro Fernández del Río. Investigador pre-doctoral en Universidad de Valencia.
+                </p>
+                <p class="text-gray-500 text-sm mt-2">
+                    Página personal creada con tecnologías web modernas y diseño responsivo.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animación de timeline
+            const timelineItems = document.querySelectorAll('.timeline-project');
+            
+            const animateTimeline = () => {
+                timelineItems.forEach((item, index) => {
+                    const rect = item.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        setTimeout(() => {
+                            anime({
+                                targets: item,
+                                opacity: [0, 1],
+                                translateX: [-50, 0],
+                                duration: 800,
+                                easing: 'easeOutQuart'
+                            });
+                        }, index * 200);
+                    }
+                });
+            };
+            
+            // Animación de cards
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            const animateCards = () => {
+                projectCards.forEach((card, index) => {
+                    const rect = card.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0 && !card.classList.contains('animated')) {
+                        setTimeout(() => {
+                            anime({
+                                targets: card,
+                                opacity: [0, 1],
+                                translateY: [30, 0],
+                                duration: 800,
+                                easing: 'easeOutQuart'
+                            });
+                            card.classList.add('animated');
+                        }, index * 100);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateTimeline);
+            window.addEventListener('scroll', animateCards);
+            
+            // Ejecutar al cargar
+            animateTimeline();
+            animateCards();
+            
+            // Animación de estadísticas
+            anime({
+                targets: '.stats-card',
+                scale: [0.8, 1],
+                opacity: [0, 1],
+                duration: 1000,
+                delay: anime.stagger(200),
+                easing: 'easeOutQuart'
+            });
+        });
+    </script>
+</body>
+</html>
