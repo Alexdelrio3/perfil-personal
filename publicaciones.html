@@ -192,7 +192,38 @@
     <section class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div id="publications-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
+
+                <!-- Publicación 1: IA -->
+                <div class="publication-card rounded-2xl p-6 card-hover" data-type="article" data-year="2025">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">2025</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Artículo</span>
+                        </div>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-blue-900 mb-3">
+                        Us and artificial intelligence: Questioning agency and the need for critical and humanist perspectives
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        <strong>Editorial:</strong> Open Research Europe<br>
+                        <strong>Coautores:</strong> Marco Guglielmo, Petra Ahrweiler, Oscar Barberà, Dario Simon Brockschmidt, Nathan Critch, Ana Luisa de Moraes Azenha, Alejandro Fernández Del Río... Bradley Ward
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">IA</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Democracia</span>
+                        <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Participatión Politica</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">
+                        Este ensayo analiza cómo la Inteligencia Artificial (IA) está redefiniendo la agencia política y social, y propone la necesidad de anclar su investigación en perspectivas críticas y humanistas para contrarrestar los enfoques impulsados por el mercado que priorizan la eficiencia sobre la democracia y la sostenibilidad.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-500">Citaciones: Próximamente</span>
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub1')">
+                            Ver Resumen
+                        </button>
+                    </div>
+                </div>
+
                 <!-- Publicación 1: Ciencia ciudadana en el ámbito biomédico -->
                 <div class="publication-card rounded-2xl p-6 card-hover" data-type="article" data-year="2025">
                     <div class="flex items-start justify-between mb-4">
@@ -219,7 +250,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">Citaciones: Próximamente</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub1')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub2')">
                             Ver Resumen
                         </button>
                     </div>
@@ -251,7 +282,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">Citaciones: 3</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub2')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub3')">
                             Ver Resumen
                         </button>
                     </div>
@@ -281,7 +312,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">Citaciones: 2</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub3')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub4')">
                             Ver Resumen
                         </button>
                     </div>
@@ -313,7 +344,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">Citaciones: 1</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub4')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub5')">
                             Ver Resumen
                         </button>
                     </div>
@@ -345,7 +376,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">Presentación</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub5')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub6')">
                             Ver Resumen
                         </button>
                     </div>
@@ -377,7 +408,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">Citaciones: 0</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub6')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub7')">
                             Ver Resumen
                         </button>
                     </div>
@@ -409,7 +440,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">Informe Técnico</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub7')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub8')">
                             Ver Resumen
                         </button>
                     </div>
@@ -441,7 +472,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">Informe Regional</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub8')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub9')">
                             Ver Resumen
                         </button>
                     </div>
@@ -473,7 +504,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">Open Access</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub9')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub10')">
                             Ver Resumen
                         </button>
                     </div>
@@ -505,7 +536,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">English Version</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub10')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub11')">
                             Ver Resumen
                         </button>
                     </div>
@@ -536,7 +567,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">Capítulo de Libro</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub11')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub12')">
                             Ver Resumen
                         </button>
                     </div>
@@ -568,7 +599,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <span class="text-xs text-gray-500">Artículo Divulgativo</span>
-                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub12')">
+                        <button class="text-blue-600 hover:text-blue-800 text-sm font-semibold" onclick="showAbstract('pub13')">
                             Ver Resumen
                         </button>
                     </div>
@@ -696,29 +727,31 @@
         
         // Abstract modal functionality
         const abstracts = {
-            pub1: `Este trabajo presenta un análisis bibliométrico exhaustivo del fenómeno de la ciencia ciudadana en el ámbito biomédico y sanitario. Mediante el uso de técnicas bibliométricas avanzadas, se identifican las principales tendencias, patrones de colaboración, instituciones líderes y áreas emergentes de investigación en este campo. El estudio revela un crecimiento exponencial en la producción científica sobre ciencia ciudadana en biomedicina, con una diversificación geográfica y temática significativa en los últimos años. Los resultados muestran la emergencia de redes de colaboración internacionales y el desarrollo de nuevas metodologías participativas en investigación biomédica.`,
+            pub1: `Este ensayo analiza cómo la Inteligencia Artificial (IA) está redefiniendo la agencia política y social, y propone la necesidad de anclar su investigación en perspectivas críticas y humanistas para contrarrestar los enfoques impulsados por el mercado que priorizan la eficiencia sobre la democracia y la sostenibilidad.`,
             
-            pub2: `Este artículo explora los desafíos fundamentales que la inteligencia artificial y el Internet de las Cosas presentan para las democracias contemporáneas. Se argumenta que estas tecnologías están reconfigurando las relaciones de poder, la privacidad y la participación ciudadana. El trabajo propone un nuevo marco conceptual de ciudadanía digital que incorpora la conciencia algorítmica, la soberanía de datos y la participación tecnológica como elementos centrales. Se presentan casos prácticos y se discuten las implicaciones para la gobernanza democrática en la era digital.`,
+            pub2: `Este trabajo presenta un análisis bibliométrico exhaustivo del fenómeno de la ciencia ciudadana en el ámbito biomédico y sanitario. Mediante el uso de técnicas bibliométricas avanzadas, se identifican las principales tendencias, patrones de colaboración, instituciones líderes y áreas emergentes de investigación en este campo. El estudio revela un crecimiento exponencial en la producción científica sobre ciencia ciudadana en biomedicina, con una diversificación geográfica y temática significativa en los últimos años. Los resultados muestran la emergencia de redes de colaboración internacionales y el desarrollo de nuevas metodologías participativas en investigación biomédica.`,
             
-            pub3: `Los presupuestos participativos representan una de las innovaciones democráticas más significativas de las últimas décadas. Este artículo analiza críticamente su potencial y limitaciones como mecanismo de democracia radical. Se examinan casos de éxito y fracaso, identificando los factores que condicionan su efectividad. El trabajo argumenta que, aunque los presupuestos participativos han contribuido a la innovación democrática, enfrentan desafíos significativos en términos de escala, representatividad y sostenibilidad. Se proponen estrategias para superar estas limitaciones.`,
+            pub3: `Este artículo explora los desafíos fundamentales que la inteligencia artificial y el Internet de las Cosas presentan para las democracias contemporáneas. Se argumenta que estas tecnologías están reconfigurando las relaciones de poder, la privacidad y la participación ciudadana. El trabajo propone un nuevo marco conceptual de ciudadanía digital que incorpora la conciencia algorítmica, la soberanía de datos y la participación tecnológica como elementos centrales. Se presentan casos prácticos y se discuten las implicaciones para la gobernanza democrática en la era digital.`,
             
-            pub4: `El estudio de la juventud requiere herramientas metodológicas innovadoras que capturen la complejidad de sus experiencias y comportamientos. Este capítulo presenta el desarrollo del "Opinion Leaders Index for Youth (OLIYOU)", un nuevo indicador que mide el liderazgo de opinión entre jóvenes. Se describe la metodología de construcción del índice, su validación empírica y las aplicaciones prácticas para investigación y políticas públicas. El OLIYOU representa una contribución significativa a la metodología de investigación juvenil, permitiendo análisis más sofisticados de influencia y liderazgo en contextos juveniles.`,
+            pub4: `Los presupuestos participativos representan una de las innovaciones democráticas más significativas de las últimas décadas. Este artículo analiza críticamente su potencial y limitaciones como mecanismo de democracia radical. Se examinan casos de éxito y fracaso, identificando los factores que condicionan su efectividad. El trabajo argumenta que, aunque los presupuestos participativos han contribuido a la innovación democrática, enfrentan desafíos significativos en términos de escala, representatividad y sostenibilidad. Se proponen estrategias para superar estas limitaciones.`,
             
-            pub5: `La relación entre la juventud y el sistema político español ha experimentado transformaciones significativas en las últimas décadas. Esta investigación analiza estas dinámicas mediante un enfoque multidimensional que considera patrones de participación electoral, activismo político, engagement digital y representación. Los resultados muestran una juventud políticamente activa pero crítica con las instituciones tradicionales, con preferencia por formas de participación alternativas y digitalización de la política. Se discuten las implicaciones para la legitimidad democrática y la renovación del sistema político.`,
+            pub5: `El estudio de la juventud requiere herramientas metodológicas innovadoras que capturen la complejidad de sus experiencias y comportamientos. Este capítulo presenta el desarrollo del "Opinion Leaders Index for Youth (OLIYOU)", un nuevo indicador que mide el liderazgo de opinión entre jóvenes. Se describe la metodología de construcción del índice, su validación empírica y las aplicaciones prácticas para investigación y políticas públicas. El OLIYOU representa una contribución significativa a la metodología de investigación juvenil, permitiendo análisis más sofisticados de influencia y liderazgo en contextos juveniles.`,
             
-            pub6: `Las Tecnologías de la Información y Comunicación han transformado radicalmente las posibilidades metodológicas para el estudio de la juventud. Este capítulo presenta un conjunto de herramientas innovadoras que aprovechan las capacidades digitales para la recolección, análisis y visualización de datos sobre juventud. Se describen aplicaciones prácticas, casos de uso y las ventajas metodológicas de estas nuevas herramientas. El trabajo contribuye al desarrollo de métodos de investigación más adaptados a la realidad digital de la juventud contemporánea.`,
+            pub6: `La relación entre la juventud y el sistema político español ha experimentado transformaciones significativas en las últimas décadas. Esta investigación analiza estas dinámicas mediante un enfoque multidimensional que considera patrones de participación electoral, activismo político, engagement digital y representación. Los resultados muestran una juventud políticamente activa pero crítica con las instituciones tradicionales, con preferencia por formas de participación alternativas y digitalización de la política. Se discuten las implicaciones para la legitimidad democrática y la renovación del sistema político.`,
             
-            pub7: `Este informe técnico presenta los resultados de un estudio comprehensivo sobre las condiciones de vida, participación y expectativas de la juventud en el municipio de Cartagena. La investigación combina métodos cuantitativos y cualitativos para proporcionar un diagnóstico detallado de la situación juvenil local. Los resultados abarcan dimensiones como empleo, educación, vivienda, participación social y calidad de vida. El informe incluye recomendaciones prácticas para políticas públicas municipales dirigidas a la juventud.`,
+            pub7: `Las Tecnologías de la Información y Comunicación han transformado radicalmente las posibilidades metodológicas para el estudio de la juventud. Este capítulo presenta un conjunto de herramientas innovadoras que aprovechan las capacidades digitales para la recolección, análisis y visualización de datos sobre juventud. Se describen aplicaciones prácticas, casos de uso y las ventajas metodológicas de estas nuevas herramientas. El trabajo contribuye al desarrollo de métodos de investigación más adaptados a la realidad digital de la juventud contemporánea.`,
             
-            pub8: `El presente informe constituye un análisis regional exhaustivo de las características, necesidades y potencialidades de la juventud en la Región de Murcia. Basado en datos empíricos representativos, el estudio aborda múltiples dimensiones de la realidad juvenil: condiciones socioeconómicas, patrones de consumo, participación social y política, valores y expectativas futuras. Los resultados permiten identificar desafíos específicos y oportunidades para el desarrollo juvenil regional, proporcionando una base sólida para la formulación de políticas públicas adaptadas.`,
+            pub8: `Este informe técnico presenta los resultados de un estudio comprehensivo sobre las condiciones de vida, participación y expectativas de la juventud en el municipio de Cartagena. La investigación combina métodos cuantitativos y cualitativos para proporcionar un diagnóstico detallado de la situación juvenil local. Los resultados abarcan dimensiones como empleo, educación, vivienda, participación social y calidad de vida. El informe incluye recomendaciones prácticas para políticas públicas municipales dirigidas a la juventud.`,
             
-            pub9: `Este artículo colectivo reflexiona críticamente sobre la relación entre humanos e inteligencia artificial, cuestionando las nociones tradicionales de agencia y autonomía. Se argumenta que la creciente integración de IA en la vida diaria requiere una reconsideración fundamental de los marcos éticos y políticos. El trabajo defiende la necesidad de mantener perspectivas humanistas críticas que preserven la dignidad humana y la soberanía individual frente a la expansión de sistemas automatizados. Se proponen principios para una convivencia ética entre humanos e IA.`,
+            pub9: `El presente informe constituye un análisis regional exhaustivo de las características, necesidades y potencialidades de la juventud en la Región de Murcia. Basado en datos empíricos representativos, el estudio aborda múltiples dimensiones de la realidad juvenil: condiciones socioeconómicas, patrones de consumo, participación social y política, valores y expectativas futuras. Los resultados permiten identificar desafíos específicos y oportunidades para el desarrollo juvenil regional, proporcionando una base sólida para la formulación de políticas públicas adaptadas.`,
             
-            pub10: `This article presents the English version of the analysis on democratic challenges in the AI and IoT era. The work examines how these technologies are reshaping democratic governance, citizenship, and political participation. It proposes a new framework for understanding digital citizenship that incorporates awareness of algorithmic governance, data sovereignty, and technological participation. The analysis draws on empirical cases and theoretical insights to develop practical recommendations for democratic innovation in the digital age.`,
+            pub10: `Este artículo colectivo reflexiona críticamente sobre la relación entre humanos e inteligencia artificial, cuestionando las nociones tradicionales de agencia y autonomía. Se argumenta que la creciente integración de IA en la vida diaria requiere una reconsideración fundamental de los marcos éticos y políticos. El trabajo defiende la necesidad de mantener perspectivas humanistas críticas que preserven la dignidad humana y la soberanía individual frente a la expansión de sistemas automatizados. Se proponen principios para una convivencia ética entre humanos e IA.`,
             
-            pub11: `Este capítulo profundiza en el análisis de las dinámicas entre la juventud española y el sistema político nacional. Utilizando datos empíricos recientes, el trabajo examina patrones de participación electoral y no electoral, activismo digital, engagement político y representación juvenil. Los resultados muestran una generación joven políticamente consciente pero crítica con las instituciones tradicionales, buscando nuevas formas de participación política más allá de los canales convencionales.`,
+            pub11: `This article presents the English version of the analysis on democratic challenges in the AI and IoT era. The work examines how these technologies are reshaping democratic governance, citizenship, and political participation. It proposes a new framework for understanding digital citizenship that incorporates awareness of algorithmic governance, data sovereignty, and technological participation. The analysis draws on empirical cases and theoretical insights to develop practical recommendations for democratic innovation in the digital age.`,
             
-            pub12: `Este artículo divulgativo promueve la afiliación a la Asociación Española de Ciencia Política y de la Administración (AECPA). Se presentan los beneficios profesionales, académicos y de networking que ofrece la asociación, así como su papel en el desarrollo de la ciencia política española. El trabajo busca incentivar la participación activa de investigadores y profesionales en la comunidad académica de ciencia política en España.`
+            pub12: `Este capítulo profundiza en el análisis de las dinámicas entre la juventud española y el sistema político nacional. Utilizando datos empíricos recientes, el trabajo examina patrones de participación electoral y no electoral, activismo digital, engagement político y representación juvenil. Los resultados muestran una generación joven políticamente consciente pero crítica con las instituciones tradicionales, buscando nuevas formas de participación política más allá de los canales convencionales.`,
+            
+            pub13: `Este artículo divulgativo promueve la afiliación a la Asociación Española de Ciencia Política y de la Administración (AECPA). Se presentan los beneficios profesionales, académicos y de networking que ofrece la asociación, así como su papel en el desarrollo de la ciencia política española. El trabajo busca incentivar la participación activa de investigadores y profesionales en la comunidad académica de ciencia política en España.`
         };
         
         function showAbstract(pubId) {
